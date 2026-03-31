@@ -1,0 +1,38 @@
+name: AI Tools Knowledge Base Auto-Update
+
+on:
+  schedule:
+    # 每周运行一次 (每周一 0:00 UTC)
+    - cron: '0 0 * * 1'
+  workflow_dispatch:
+    # 手动触发
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      
+      - name: Install Dependencies
+        run: |
+          pip install requests pyyaml
+      
+      - name: Run Update Script
+        run: python .github/scripts/update_knowledge.py
+      
+      - name: Commit Updates
+        if: github.event_name == 'schedule'
+        run: |
+          git config user.name "AI Bot"
+          git config user.email "bot@openclaw.ai"
+          git add -A
+          git commit -m "chore: 自动更新知识库 $(date +%Y-%m-%d)" || echo "No changes to commit"
+          git push
