@@ -847,7 +847,117 @@ Qwen3 系列成为 Hugging Face 下载量最高的模型系列:
 
 ---
 
-*最后更新: 2026-08-31*
+---
+
+## 2026 年 09 月主流模型动态 - 2026-09-11 更新
+
+### Hugging Face Trending 文本生成模型 (Top 20)
+
+| 排名 | 模型 | 参数量 | 下载量 | 趋势 | 备注 |
+|------|------|--------|--------|------|------|
+| 1 | **openbmb/MiniCPM5-2B** | 3B | 42.3k | 🆕 | 8小时前更新，面壁小钢炮新版 |
+| 2 | **XHToken/Spark-X2.5-4B** | 4B | 15.9k | 🆕 | 新兴模型，7天前 |
+| 3 | **nex-agi/Nex-N2.5-mini** | 35B | 2.44k | 🆕 | 2天前更新，Agent 专用 |
+| 4 | **dealignai/GLM-5.3-CYBERSECURITY-FP8** | 753B | 24.3k | 🆕 | 2天前，网络安全专用 GLM |
+| 5 | **IFM/K2-Horizon-MoVA-36B-A4B** | 37B | 4.49k | 🆕 | 3天前，MoVA 架构 |
+| 6 | **zai-org/GLM-5.3** | 753B | 552k | → | 智谱最新，6天前更新 |
+| 7 | **JonathanColetti/Qwen3.8-27B-Uncensored-GGUF** | 27B | 2.81M | → | 未经审查 GGUF 版 |
+| 8 | **OBLITERATUS/Qwen3.8-27B-OBLITERATED** | 28B | 1.13M | → | 未审查版 |
+| 9 | **TokenRhythm/NeoHorse-1-4B** | 4B | 5.33k | 🆕 | 10小时前更新 |
+| 10 | **nvidia/Qwen3.8-27B-NVFP4** | 18B | 10.5k | 🆕 | NVIDIA 优化版，1天前更新 |
+| 11 | **openai/gpt-oss-20b** | 21B | 6.59M | → | OpenAI 开源 |
+| 12 | **nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4** | 18B | 1.32M | → | NVIDIA 高效优化 |
+| 13 | **superwhisper/s1-mini** | 0.8B | 8.53k | → | 语音转文本 |
+| 14 | **unsloth/GLM-5.3-Flash-GGUF** | 321B | 285k | → | 量化版 |
+| 15 | **ornith-ai/Ornith-1.5-9B-GGUF** | 9B | 4.01M | → | 高效量化版 |
+| 16 | **prism-ml/Ternary-Bonsai-27B-gguf** | 27B | 646k | → | 高效量化 |
+| 17 | **inclusionAI/Ling-3.0-tiny** | 8B | 28.8k | → | 轻量版 |
+| 18 | **Nanbeige/Nanbeige4.2-3B** | 4B | 33.9k | → | 中文词词模型 |
+| 19 | **openbmb/MiniCPM5-2B-GGUF** | 3B | 51.2k | 🆕 | GGUF 量化版 |
+| 20 | **deepseek-ai/DeepSeek-V4-Flash-0731** | 304B | 4.39M | → | 高效版持续热门 |
+
+### 新上线重点模型
+
+#### Nex-N2.5 系列 (Nex-AGI)
+
+**Nex-N2.5** 是本周最重要的 Agent 模型发布，分为 mini/Pro/Max 三档：
+
+| 模型 | 参数量 | 架构 | 定位 |
+|------|--------|------|------|
+| **Nex-N2.5-mini** | 35B | MoE | 轻量 Agent |
+| **Nex-N2.5-Pro** | - | MoE | 中端 Agent |
+| **Nex-N2.5-Max** | **1.6T** | MoE | 万亿参数旗舰 |
+
+**关键亮点**：
+- Nex-N2.5-Max 是 Nex-AGI **首个万亿参数规模的完整后训练**成果
+- 支持持续行动和视觉反馈自我修正
+- 可操作电脑和浏览器，自主执行和测试程序
+- 视觉不再只是输入模态，而是 Agent 感知环境、验证结果的关键接口
+
+**基准测试对比**：
+
+| Benchmark | Nex-N2.5-Max | Claude Opus 5 | GPT-5.6 Sol | Kimi-K3 |
+|-----------|-------------|---------------|-------------|---------|
+| SWE-Bench Pro | 65.7 | 79.2 | 64.6 | 63.3 |
+| Terminal-Bench 2.1 | 78.6 | 86.1 | 89.1 | 88.8 |
+| BrowseComp | 92.6 | 90.8 | 90.4 | 91.2 |
+| OSWorld-Verified | 82.2 | 83.4 | 83.2 | 84.8 |
+| AutomationBench | 50.2 | 45.8 | 46.7 | 48.2 |
+
+#### K2-Horizon-MoVA-36B-A4B (IFM)
+
+- **参数量**: 36B (激活 4B)
+- **特点**: MoVA (Mixture-of-Values Attention) 架构，512K 原生上下文
+- **基准表现**: 4B 激活参数在 Agent 和推理任务上超越 15 倍规模的模型
+
+| Benchmark | K2-Horizon 36B | Qwen3.6-35B | Nemotron 3 Ultra |
+|-----------|----------------|-------------|------------------|
+| tau3-Banking | 26.8 | 9.3 | 14.2 |
+| Terminal-Bench 2.1 | 58.6 | 44.9 | 53.9 |
+| GPQA Diamond | 80.8 | 84.1 | 86.7 |
+
+#### MiniCPM5-2B (面壁)
+
+- **参数量**: 3B
+- **下载量**: 42.3k (8小时前更新)
+- **特点**: 面壁小钢炮最新版本，GGUF 量化版 51.2k 下载
+
+#### GLM-5.3-CYBERSECURITY (智谱)
+
+- **参数量**: 753B
+- **特点**: 网络安全领域专项微调，降低对渗透测试/逆向/恶意软件分析的拒绝率
+- **使用注意**: reasoning_effort 只支持 low/high，FP8 推荐 low 用于 Agent 场景
+
+#### Qwen3.8-Flash-Next (阿里)
+
+- **AtomicChat/Qwen3.8-Flash-Next-GGUF**: 177B，48.5k 下载
+- **agentionai/Qwen3.8-Flash-Next-ROCmFP4-FAST**: ROCm FP4 优化版，27.8k 下载，18小时前更新
+
+### 模型趋势分析 (2026-09)
+
+1. **Agent 模型军备竞赛**: Nex-N2.5-Max (1.6T) 和 Nex-N2.5-Pro 的出现标志着万亿参数 Agent 模型走向实用化，视觉反馈自我修正成为标配
+
+2. **NVIDIA 持续深耕**: Qwen3.8-27B-NVFP4 (1天前更新) 和 Nemotron-3.5-Lightning-30B-A3B-NVFP4 (3小时前更新) 显示 NVIDIA 在高效推理格式上持续发力
+
+3. **GLM-5.3 生态扩张**: 从通用版到 CYBERSECURITY 专项版，智谱正在细分领域做专业化微调
+
+4. **面壁小钢炮回归**: MiniCPM5-2B 新版本保持小参数高性能路线，8小时前更新显示活跃维护
+
+5. **GGUF 量化持续统治**: 几乎所有热门模型都有 GGUF 量化版，社区对本地部署需求旺盛
+
+### 小模型专精榜 (2026-09-11 更新)
+
+| 模型 | 参数 | 专精领域 | 评分 | 备注 |
+|------|------|----------|------|------|
+| Nex-N2.5-mini | 35B | Agent | ⭐⭐⭐⭐⭐ | Agent 专用家族 |
+| K2-Horizon-MoVA-36B | 4B 激活 | 高效 Agent | ⭐⭐⭐⭐⭐ | 4B 参数超越 15x 规模 |
+| MiniCPM5-2B | 3B | 轻量高效 | ⭐⭐⭐⭐ | 面壁小钢炮最新版 |
+| NVIDIA-Nemotron-3.5-Lightning | 30B | 高效推理 | ⭐⭐⭐⭐⭐ | NVIDIA 原生优化 |
+| DeepSeek-V4-Flash | 304B | 高效推理 | ⭐⭐⭐⭐ | 4.39M 下载 |
+
+---
+
+*最后更新: 2026-09-11*
 
 ---
 

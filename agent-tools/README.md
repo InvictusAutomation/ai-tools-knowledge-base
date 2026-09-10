@@ -574,9 +574,67 @@ Leader (capi) → 任务拆解
 
 ---
 
+## 2026 年 09 月新出现工具 (GitHub Trending) - 2026-09-11 更新
+
+### Cursor 官方插件生态
+
+| 工具 | 描述 | 特点 |
+|------|------|------|
+| **Thermos** | 热核分支审查 | 深度安全/正确性审计，严厉代码质量标准，并行 subagent |
+| **Orchestrate** | 云端并行 Agent 编排 | 将大任务分发到并行云 agent，支持 planner/worker/verifier |
+| **Cursor SDK** | TypeScript SDK | 构建应用、脚本和自动化 |
+| **Cursor Team Kit** | 内部团队工作流 | CI、代码审查、发布、本地自动化和验证 |
+| **Agent Compatibility** | Agent 兼容性扫描 | CLI 扫描 repo 兼容性，审计启动、验证和文档 |
+| **PR Review Canvas** | PR 审查画布 | 按重要性分组渲染 PR diff |
+| **Docs Canvas** | 文档画布 | 导航式文档渲染 |
+| **CLI for Agents** | Agent CLI 设计模式 | 设计可靠 CLI 的模式：flags/help/管道/错误/幂等 |
+| **Continual Learning** | 增量式持续学习 | transcript 驱动的高信号要点更新 AGENTS.md |
+| **Teaching** | 教学技能 | 技能映射、练习计划和学习复盘 |
+
+### AI 网关与路由
+
+| 工具 | 描述 | 特点 |
+|------|------|------|
+| **NVIDIA Switchyard** | 模型智能路由 | 自动选择最便宜且能完成任务的模型，支持 NeMo Relay/LiteLLM 插件，Python/Rust 双库 |
+
+### Apple Silicon 优化
+
+| 工具 | 描述 | 特点 |
+|------|------|------|
+| **MTPLX** | MLX 3x 加速 | Apple Silicon 原生 MTP 推测解码，Qwen3.8-27B 效率提升 3x，无需外部草稿模型 |
+
+### 语音与音频
+
+| 工具 | 描述 | 特点 |
+|------|------|------|
+| **VoiceStudio** | 开源 ElevenLabs 替代 | 语音克隆、设计、视频配音、听写、转录、646 语言 audiobook 创建，全本地 |
+
+### 设计技能
+
+| 工具 | 描述 | 特点 |
+|------|------|------|
+| **diagram-design** | 38 种编辑图表 | Claude Code/Codex/Pi 专用，自包含 HTML + SVG，无阴影，无 Mermaid |
+
+### 上下文优化
+
+| 工具 | 描述 | 特点 |
+|------|------|------|
+| **context-mode** | 上下文窗口优化 | 沙箱化工具输出 (98% 减少)，持久化 session memory，MCP + hooks 跨 17 平台路由 |
+
+### 重点观察：Cursor 插件生态成形
+
+**Cursor 官方插件仓库** (cursor/plugins) 的发布标志着 Cursor 从 IDE 向 Agent 平台演进：
+
+- **Thermos**: 强调"热核"级审查 — 自动化安全审计和代码质量评分，适合高标准代码库
+- **Orchestrate**: 解决"大任务分解"问题 — 云端并行 worker + verifier，适合复杂项目
+- **SDK**: TypeScript 优先，开放了构建自定义插件的完整工具链
+- **趋势**: Claude Code/Codex 的 skill 生态正在被 Cursor 以"插件"形式重新定义
+
+---
+
 ## 持续更新
 
-- 最后更新: 2026-08-31
+- 最后更新: 2026-09-11
 - 更新频率: 每周
 
 ---
